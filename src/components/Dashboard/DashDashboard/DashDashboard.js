@@ -15,8 +15,8 @@ const Modals = (props) => {
     }
 
     const handlePrescription = () => {
-        fetch(`http://localhost:4200/prescriptionAdded/${props.appointedpeopleid._id}`, {
-            // fetch(`https://fathomless-taiga-80523.herokuapp.com/appointedPeople/${props.appointedPeopleId._id}`, {
+        // fetch(`http://localhost:4200/prescriptionAdded/${props.appointedpeopleid._id}`, {
+            fetch(`https://fathomless-taiga-80523.herokuapp.com/appointedPeople/${props.appointedPeopleId._id}`, {
             method: 'POST',
             headers: {
                 'content-Type': 'application/json'

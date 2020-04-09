@@ -25,8 +25,8 @@ const Modals = (props) => {
     // console.log(state);
 
     const handleAppointedPeople = () => {
-        fetch("http://localhost:4200/appointedPeople", {
-            // fetch("https://fathomless-taiga-80523.herokuapp.com/appointedPeople", {
+        // fetch("http://localhost:4200/appointedPeople", {
+            fetch("https://fathomless-taiga-80523.herokuapp.com/appointedPeople", {
             method: 'POST',
             headers: {
                 'content-Type': 'application/json'

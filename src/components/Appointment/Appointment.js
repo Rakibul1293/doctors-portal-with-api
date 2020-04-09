@@ -20,8 +20,8 @@ const Appointment = () => {
     const [appointList, setAppointList] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:4200/appointments")
-            // fetch("https://fathomless-taiga-80523.herokuapp.com/appointments")
+        // fetch("http://localhost:4200/appointments")
+        fetch("https://fathomless-taiga-80523.herokuapp.com/appointments")
             .then(res => res.json())
             .then(data => {
                 setAppointList(data);

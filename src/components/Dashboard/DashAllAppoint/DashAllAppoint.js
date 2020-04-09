@@ -23,8 +23,8 @@ const DashAllAppoint = () => {
     const [appointedPeople, setAppointedPeople] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:4200/appointedPeople/${dateName}`)
-            // fetch(`https://fathomless-taiga-80523.herokuapp.com/appointedPeople/${dateName}`)
+        // fetch(`http://localhost:4200/appointedPeople/${dateName}`)
+            fetch(`https://fathomless-taiga-80523.herokuapp.com/appointedPeople/${dateName}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
