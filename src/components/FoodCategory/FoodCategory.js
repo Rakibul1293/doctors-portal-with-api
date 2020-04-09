@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import "./FoodCategory.css";
 import FoodCategoryItem from '../FoodCategoryItem/FoodCategoryItem';
 import FoodDetails from '../FoodDetails/FoodDetails';
-import Login from '../Auth/Login';
 import fakeData from '../../fakeData';
 // import { Link } from 'react-router-dom';
 import { getDatabaseCart, addToDatabaseCart } from '../../utilities/databaseManager';

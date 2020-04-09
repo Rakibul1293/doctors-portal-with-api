@@ -1,0 +1,40 @@
+.container-fluid {
+    padding-left: 0px;
+}
+.pos {
+    position: relative;
+    padding-bottom: 1301px;
+}
+.control {
+    position: relative;
+    top: 90px;
+    right: 69px;
+}
+.cat1, .cat2, .cat3, .cat4 {
+    padding: 10px 30px;
+    border-radius: 10px;
+}
+.cat1 {
+    background-image: linear-gradient(to bottom, #F1536E 0%, #F1536E 100%);
+}
+.cat2 {
+    background-image: linear-gradient(to bottom, #3DA5F4 0%, #3DA5F4 100%);
+}
+.cat3 {
+    background-image: linear-gradient(to bottom, #FDA006 0%, #FDA006 100%);
+}
+.control_h2h6 {
+    color: white;
+}
+.dash-appoint-list {
+    width: 847px;
+    height: 1145px;
+    margin-top: 145px;
+    position: absolute;
+    margin-left: 355px;
+    border-radius: 1%;
+    background-image: linear-gradient(to bottom, #fff 0%, #fff 100%);
+}
+.dash-appoint-list {
+    color: #959292;
+}

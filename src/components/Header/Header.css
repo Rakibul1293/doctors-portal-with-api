@@ -1,5 +1,5 @@
 .navbar-brand {
-    margin-right: 11rem;
+    margin-right: 37rem;
 }
 .navbar-brand img {
     margin-left: 81px;
@@ -11,11 +11,17 @@
 .navbar-nav .nav-link {
     padding-left: 28px;
 }
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(15, 187, 186, 1);
+}
+.navbar-light .navbar-nav .nav-link:hover {
+    color: rgba(15, 187, 186, 1);
+}
 .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 1.5rem;
 }
 .signUp-btn {
-    background-image: linear-gradient(to bottom, #e60658f1 0%, #e60657e3 100%);
+    background-image: linear-gradient(to bottom, #00f3ff 0%, #0674e6e3 100%);
     color: #fff;
     border: none;
     border-radius: 21px;

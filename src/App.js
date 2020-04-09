@@ -1,28 +1,33 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from './components/Header/Header';
 import BannerTop from './components/BannerTop/BannerTop';
-import FoodCategory from './components/FoodCategory/FoodCategory';
-import Login from './components/Auth/Login';
-import { AuthContextProvider, PrivateRoute } from "./components/Auth/Auth";
+import Appointment from './components/Appointment/Appointment';
+import DashAllAppoint from './components/Dashboard/DashAllAppoint/DashAllAppoint';
+import DashDashboard from './components/Dashboard/DashDashboard/DashDashboard';
 
 function App(props) {
   return (
-    <div>
-      <AuthContextProvider>
-        <Header></Header>
-        <BannerTop></BannerTop>
-        <FoodCategory></FoodCategory>
-
-        <Router>
-          <Switch>
-            <Route path="/login">
-              {/* <Login></Login> */}
-            </Route>
-          </Switch>
-        </Router>
-      </AuthContextProvider>
+    <div className="bg">
+      <Router>
+        <Switch>
+          <Route exact path='/'>
+            <Header />
+            <BannerTop />
+          </Route>
+          <Route path='/appointments'>
+            <Header />
+            <Appointment />
+          </Route>
+          <Route path='/dashboard/doctor/appointment'>
+            <DashAllAppoint />
+          </Route>
+          <Route path='/dashboard/doctor'>
+            <DashDashboard />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

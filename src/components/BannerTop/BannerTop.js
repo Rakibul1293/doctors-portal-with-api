@@ -1,14 +1,15 @@
 import React from 'react';
 import './BannerTop.css';
+import { Link } from 'react-router-dom';
 
 const BannerTop = () => {
     return (
         <section className="top-banner">
-            <h1 className="text-center txt-dec">Best Food Waiting For Your Belly</h1>
+            <h1 className="text-center txt-dec">Your New Smile Start Here</h1>
             <div className="input-group">
-                <input type="text" className="form-control form-rounded box-width" placeholder="Search for..." />
                 <span className="input-group-btn">
-                    <button className="btn btn-search" type="button">Search</button>
+                    <Link to="/appointments"><button className="btn btn-search" type="button">Get Appointment</button></Link>
+                    <Link to="/dashboard/doctor/appointment"><button className="btn btn-search" type="button">Dentel Services</button></Link>
                 </span>
             </div>
         </section>

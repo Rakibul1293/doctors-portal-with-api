@@ -1,0 +1,46 @@
+.top-banners {
+    background-image: url("images/bg-image.png");
+    padding: 241px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 785px;
+}
+.twin-side {
+    position: relative;
+    bottom: 151px;
+}
+.twin-side .cal {
+    position: relative;
+    right: 69px;
+}
+.twin-side img {
+    position: relative;
+    width: 595px;
+}
+.react-datepicker {
+    border: 1px solid transparent!important;
+    margin: 1.166rem!important;
+}
+.react-datepicker__header {
+    border-bottom: 1px solid transparent!important;
+    background-color: transparent!important;
+}
+.react-datepicker__month-container {
+    float: left!important;
+    width: 405px!important;
+    height: 537px!important;
+}
+.react-datepicker__current-month {
+    padding-top: 19px!important;
+    color: #30a1ad!important;
+}
+.react-datepicker__day {
+    line-height: 3.7rem!important;
+    margin: 10px!important;
+    color: #22b4cc!important;
+}
+.react-datepicker__day-name {
+    line-height: 3.7rem!important;
+    margin: 10px!important;
+    color: #007bff!important;
+}
