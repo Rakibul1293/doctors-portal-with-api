@@ -12,11 +12,14 @@ const Appointment = () => {
     ];
     const monthName = monthNames[startDate.getMonth()];
     const month = startDate.getMonth();
+    const incMonth = startDate.getMonth() + 1;
     const year = startDate.getFullYear();
     const date = startDate.getDate();
     const time = startDate.getTime();
-    const formated_calender = `${date}-${month}-${year}`;
-    const calender = { monthName, month, year, date, time, formated_calender };
+    const calender = { monthName, month, incMonth, year, date, time };
+    const formated_calender = `${calender.date}-${calender.incMonth}-${calender.year}`;
+    // console.log(formated_calender);
+
     const [appointList, setAppointList] = useState([]);
 
     useEffect(() => {
@@ -32,7 +35,7 @@ const Appointment = () => {
         <div className="container-fluid top-banners">
             <div className="twin-side">
                 <div className="row">
-                    <div className="col-md-6 cal">
+                    <div className="col-md-6">
                         <div className="cal">
                             <h1>Appointment</h1><br />
                             <DatePicker
@@ -60,7 +63,7 @@ const Appointment = () => {
                             <AppointmentConfirm
                                 key={appointList._id}
                                 appointList={appointList}
-                                calender={calender}
+                                formated_calender={formated_calender}
                             ></AppointmentConfirm>
                         )
                     }

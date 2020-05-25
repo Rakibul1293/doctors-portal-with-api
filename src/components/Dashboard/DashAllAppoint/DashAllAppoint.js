@@ -19,15 +19,15 @@ const DashAllAppoint = () => {
     const calender = { monthName, month, year, date, time, formated_calender };
     const number = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen", "Twenty", "Twenty One", "Twenty Two", "Twenty Three", "Twenty Four", "Twenty Five", "Twenty Six", "Twenty Seven", "Twenty Eight", "Twenty Nine", "Thirty", "Thirty One"];
     const dateName = number[date];
-    console.log(dateName);
+    // console.log(dateName);
     const [appointedPeople, setAppointedPeople] = useState([]);
 
     useEffect(() => {
         // fetch(`http://localhost:4200/appointedPeople/${dateName}`)
-            fetch(`https://fathomless-taiga-80523.herokuapp.com/appointedPeople/${dateName}`)
+        fetch(`https://fathomless-taiga-80523.herokuapp.com/appointedPeople/${dateName}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setAppointedPeople(data);
             })
             .catch(err => {
@@ -78,7 +78,12 @@ const DashAllAppoint = () => {
                                         <h6 className="mb-4">{appointedPeople.appointTime}</h6>
                                     </div>
                                     <div className="col-md-4">
-                                        <Link to=""><button className="btn btn-primary">Visited</button></Link>
+                                        {
+                                            appointedPeople.isPrescriptionAdded ?
+                                                <Link to="/dashboard/doctor/appointment"><button className="btn btn-primary disabled" style={{ cursor: 'auto' }}>Visited</button></Link>
+                                                :
+                                                <Link to="/dashboard/doctor/appointment"><button className="btn btn-primary disabled" style={{ cursor: 'auto' }}>Not Visited</button></Link>
+                                        }
                                     </div>
                                 </div>
                             )

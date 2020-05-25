@@ -9,10 +9,13 @@ const Modals = (props) => {
     const [name, setName] = useState(null);
     const [phoneNumber, setPhoneNumber] = useState(null);
     const [email, setEmail] = useState(null);
-    const [appointDate, setAppointDate] = useState(null);
-    const [joinAppointDate, setJoinAppointDate] = useState(null);
+    const [appointDate, setAppointDate] = useState(props.formated_calender);
     const number = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen", "Twenty", "Twenty One", "Twenty Two", "Twenty Three", "Twenty Four", "Twenty Five", "Twenty Six", "Twenty Seven", "Twenty Eight", "Twenty Nine", "Thirty", "Thirty One"];
 
+    const formated_calenders = appointDate;
+    const joinAppointDates = formated_calenders.split("-");
+    const conNum = parseInt(joinAppointDates[0]);
+    const joinAppointDateName = number[conNum];
 
     const state = {
         "appointTime": `${appointTime}`,
@@ -20,13 +23,13 @@ const Modals = (props) => {
         "phoneNumber": `${phoneNumber}`,
         "email": `${email}`,
         "appointDate": `${appointDate}`,
-        "joinAppointDate": `${joinAppointDate}`
+        "joinAppointDate": `${joinAppointDateName}`
     }
     // console.log(state);
 
     const handleAppointedPeople = () => {
         // fetch("http://localhost:4200/appointedPeople", {
-            fetch("https://fathomless-taiga-80523.herokuapp.com/appointedPeople", {
+        fetch("https://fathomless-taiga-80523.herokuapp.com/appointedPeople", {
             method: 'POST',
             headers: {
                 'content-Type': 'application/json'
@@ -35,41 +38,42 @@ const Modals = (props) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('Post Successfully', data);
+                // console.log('Post Successfully', data);
                 alert('Thank\'s For Your Appointment');
             })
     }
 
     const setNames = (e) => {
         const name = e.target.value;
-        console.log(name);
+        // console.log(name);
         setName(name);
     }
 
     const setPhoneNumbers = (e) => {
         const phoneNumber = e.target.value;
-        console.log(phoneNumber);
+        // console.log(phoneNumber);
         setPhoneNumber(phoneNumber);
     }
 
     const setEmails = (e) => {
         const email = e.target.value;
-        console.log(email);
+        // console.log(email);
         setEmail(email);
     }
 
-    const setAppointDates = (e) => {
-        const appointDate = e.target.value;
-        console.log(appointDate);
+    // const setAppointDates = (formated_calender) => {
+    //     const formated_calenders = formated_calender;
+    //     setAppointDate(formated_calenders);
+    //     console.log(formated_calenders);
 
-        const joinAppointDate = appointDate.split("-");
-        const conNum = parseInt(joinAppointDate[2]);
-        console.log(conNum);
+    //     const joinAppointDate = formated_calenders.split("-");
+    //     const conNum = parseInt(joinAppointDate[2]);
+    //     console.log(conNum);
 
-        const dateName = number[conNum];
-        console.log(dateName);
-        setJoinAppointDate(dateName);
-    }
+    //     const dateName = number[conNum];
+    //     console.log(dateName);
+    //     setJoinAppointDate(dateName);
+    // }
 
     return (
         <Modal
@@ -105,7 +109,8 @@ const Modals = (props) => {
 
                     <Form.Group controlId="formBasicDate">
                         <Form.Label>Appointed Date</Form.Label>
-                        <Form.Control onChange={(e) => setAppointDates(e)} type="date" />
+                        {/* <Form.Control onChange={(e) => setAppointDates(props.formated_calender)} placeholder="Appointed Date" /> */}
+                        <Form.Control defaultValue={props.formated_calender} readOnly placeholder="Appointed Date" />
                     </Form.Group>
 
                     <Link to="/"><Button onClick={handleAppointedPeople} variant="primary" type="submit">SEND</Button></Link>
@@ -124,24 +129,23 @@ const AppointmentConfirm = (props) => {
     const { title, time, availableSpace } = props.appointList;
 
     return (
-        <div className="row mb-5">
-            <div className="col-md-4 text-center">
-                <div className="card text-center mt-3" style={{ width: "18rem" }}>
-                    <div className="card-body">
-                        <h5 className="card-title title-card-text">{title}</h5>
-                        <h5 className="card-title">{time}</h5>
-                        <p className="card-text">{availableSpace} Space Available</p>
-                        <Link to="#" className="btn btn-primary" onClick={() => setModalShow(true)}>Book Appointment</Link>
+        <div className="col-md-4 text-center">
+            <div className="card text-center mt-3" style={{ width: "18rem" }}>
+                <div className="card-body">
+                    <h5 className="card-title title-card-text">{title}</h5>
+                    <h5 className="card-title">{time}</h5>
+                    <p className="card-text">{availableSpace} Space Available</p>
+                    <Link to="#" className="btn btn-primary" onClick={() => setModalShow(true)}>Book Appointment</Link>
 
-                        <Modals
-                            show={modalShow}
-                            onHide={() => setModalShow(false)}
-                            title={title}
-                            time={time}
-                        />
-                    </div>
+                    <Modals
+                        show={modalShow}
+                        onHide={() => setModalShow(false)}
+                        title={title}
+                        time={time}
+                        formated_calender={props.formated_calender}
+                    />
                 </div>
-            </div >
+            </div>
         </div >
     );
 };

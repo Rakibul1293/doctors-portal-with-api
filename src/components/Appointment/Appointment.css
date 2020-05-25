@@ -11,11 +11,12 @@
 }
 .twin-side .cal {
     position: relative;
-    right: 69px;
+    left: 113px;   
 }
 .twin-side img {
     position: relative;
     width: 595px;
+    left: 72px;
 }
 .react-datepicker {
     border: 1px solid transparent!important;

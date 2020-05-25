@@ -18,11 +18,12 @@
     border-radius: 0px;
     box-shadow: none;
     margin-top: 15px;
-    margin-left: -7px;
+    margin-left: 131px;
 }
 .appointment-time .title-text {
     font-size: 29px;
     color: #0fc3e6;
+    margin-left: 213px;
 }
 .appointment-time .title-card-text {
     color: #0fc3e6;
